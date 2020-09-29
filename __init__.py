@@ -15,9 +15,11 @@ def main():
     while "true":
 
         if kiwoom_main.check_login() == 1:
-            time.sleep(2)
+            # time.sleep(2)
             # TODO : 내 잔고 체크
+            kiwoom_main.get_serverInfo()
             kiwoom_main.get_myinfo()
+            kiwoom_main.tr_balance()
             # TODO : 매수
             # TODO : 매도
         else:
@@ -31,3 +33,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
