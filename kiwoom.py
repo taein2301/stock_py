@@ -75,9 +75,9 @@ class Kiwoom(QAxWidget):
         print(ret)
 
     def tr_balance(self):
-        self.ocx.dynamicCall("SetInputValue(QString, QString)", "계좌번호", self.accnum)
-        self.ocx.dynamicCall("SetInputValue(QString, QString)", "조회구분", 2)
-        ret = self.ocx.dynamicCall("CommRqData(QString, QString, int, QString)", "계좌평가잔고내역요청", "opw00018", 0, "100")
+        self.dynamicCall("SetInputValue(QString, QString)", "계좌번호", self.accnum)
+        self.dynamicCall("SetInputValue(QString, QString)", "조회구분", 2)
+        ret = self.dynamicCall("CommRqData(QString, QString, int, QString)", "계좌평가잔고내역요청", "opw00018", 0, "100")
         self.tr_event_loop = QEventLoop()
         self.tr_event_loop.exec_()
 
