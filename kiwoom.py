@@ -37,7 +37,7 @@ class Kiwoom(QAxWidget):
     def trdata_slot(self, sScrNo,  sRQName,  sTrCode, sRecordName,  sPrevNext):
         print("trdata_slot %s"%sRQName)
 
-        if sRQName == "계좌평가잔고내역요청":
+        if sRQName == "REQ_BAL":
             count = self.dynamicCall("GetDataCount(QString)", ["계좌평가잔고개별합산"])
             for i in range(0, count):
                 종목명 = self.dynamicCall("CommGetData(QString, QString, QString, int, QString)", sTrCode, "", sRQName, i, "종목명")
@@ -80,7 +80,8 @@ class Kiwoom(QAxWidget):
         print("tr_balance2")
         self.dynamicCall("SetInputValue(QString, QString)", "조회구분", 2)
         print("tr_balance3")
-        ret = self.dynamicCall("CommRqData(QString, QString, int, QString)", "계좌평가잔고내역요청", "opw00018", 0, "100")
+        #ret = self.dynamicCall("CommRqData(,,,)", "계좌평가잔고내역요청", "opw00018", "0", "100")
+        self.dynamicCall("CommRqData(,,,)", "REQ_BAL", "opw00018", "0", "100")
         print("tr_balance4")
         self.tr_event_loop = QEventLoop()
         print("event_loop start")
