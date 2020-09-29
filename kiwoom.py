@@ -75,10 +75,12 @@ class Kiwoom(QAxWidget):
         print(ret)
 
     def tr_balance(self):
+        print("tr_balance")
         self.dynamicCall("SetInputValue(QString, QString)", "계좌번호", self.accnum)
         self.dynamicCall("SetInputValue(QString, QString)", "조회구분", 2)
         ret = self.dynamicCall("CommRqData(QString, QString, int, QString)", "계좌평가잔고내역요청", "opw00018", 0, "100")
         self.tr_event_loop = QEventLoop()
+        print("event_loop start")
         self.tr_event_loop.exec_()
 
     def get_myinfo(self):
