@@ -19,7 +19,8 @@ def main():
             # TODO : 내 잔고 체크
             kiwoom_main.get_serverInfo()
             kiwoom_main.get_myinfo()
-            kiwoom_main.tr_balance()
+            #kiwoom_main.tr_balance()
+            kiwoom_main.detail_account()
             # TODO : 매수
             # TODO : 매도
         else:
